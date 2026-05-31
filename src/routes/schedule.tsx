@@ -28,7 +28,7 @@ const grid: number[][] = [
 ];
 
 const legend = [
-  { v: 0, label: "예약 가능", className: "bg-[var(--ball)] text-[var(--ball-foreground)]" },
+  { v: 0, label: "예약 가능", className: "bg-[var(--amber)] text-[var(--amber-foreground)]" },
   { v: 1, label: "예약 완료", className: "bg-muted text-muted-foreground line-through" },
   { v: 2, label: "휴무", className: "bg-secondary text-muted-foreground/60" },
 ];
@@ -49,7 +49,7 @@ function SchedulePage() {
 
       <section className="border-b border-border bg-secondary/30">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--clay)]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--amber)]">
             Weekly Schedule
           </p>
           <h1 className="mt-2 font-display text-5xl font-bold md:text-6xl">
