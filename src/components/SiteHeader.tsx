@@ -1,43 +1,45 @@
 import { Link } from "@tanstack/react-router";
 
 const nav = [
-  { to: "/", label: "홈" },
-  { to: "/lessons", label: "레슨" },
-  { to: "/schedule", label: "일정표" },
-  { to: "/booking", label: "예약" },
+  { to: "/", label: "HOME" },
+  { to: "/lessons", label: "COACHING" },
+  { to: "/schedule", label: "SCHEDULE" },
+  { to: "/booking", label: "BOOK" },
 ] as const;
 
-export function SiteHeader() {
+type Variant = "transparent" | "solid";
+
+export function SiteHeader({ variant = "solid" }: { variant?: Variant }) {
+  const isTransparent = variant === "transparent";
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-2">
-          <span
-            aria-hidden
-            className="grid h-8 w-8 place-items-center rounded-full bg-[var(--ball)] text-[var(--ball-foreground)] text-sm font-bold shadow-[var(--shadow-card)]"
-          >
-            N
-          </span>
-          <span className="font-display text-lg font-semibold tracking-tight">
-            Coach Noey · Bangkok
-          </span>
+    <header
+      className={`absolute left-0 right-0 top-0 z-40 ${
+        isTransparent ? "" : "relative bg-[var(--navy-deep)]"
+      }`}
+    >
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-10">
+        <Link to="/" className="font-display text-base font-bold tracking-editorial text-white">
+          COACH NOEY
         </Link>
-        <nav className="flex items-center gap-1">
+        <nav className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-              activeProps={{
-                className:
-                  "rounded-full px-4 py-2 text-sm bg-primary text-primary-foreground",
-              }}
+              className="text-xs font-semibold tracking-editorial text-white/80 transition-colors hover:text-white"
+              activeProps={{ className: "text-xs font-semibold tracking-editorial text-white" }}
               activeOptions={{ exact: item.to === "/" }}
             >
               {item.label}
             </Link>
           ))}
         </nav>
+        <Link
+          to="/booking"
+          className="rounded-none bg-[var(--amber)] px-5 py-3 text-xs font-bold tracking-editorial text-[var(--amber-foreground)] transition-transform hover:scale-[1.03]"
+        >
+          GET LESSON
+        </Link>
       </div>
     </header>
   );
@@ -45,10 +47,38 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/60 bg-secondary/40 py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-6 text-sm text-muted-foreground md:flex-row md:items-center">
-        <p>© {new Date().getFullYear()} Coach Noey Tennis Bangkok</p>
-        <p>방콕 1:1 테니스 개인레슨 · 초보부터 토너먼트 준비까지</p>
+    <footer className="bg-[var(--navy-deep)] py-14 text-white/70">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="grid gap-10 md:grid-cols-3">
+          <div>
+            <div className="font-display text-base font-bold tracking-editorial text-white">
+              COACH NOEY
+            </div>
+            <p className="mt-3 max-w-xs text-sm">
+              Bangkok-based private tennis coaching. 12+ years bringing players from
+              first swing to tournament ready.
+            </p>
+          </div>
+          <div>
+            <div className="text-xs font-semibold tracking-editorial text-white">EXPLORE</div>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li><Link to="/lessons" className="hover:text-white">Coaching</Link></li>
+              <li><Link to="/schedule" className="hover:text-white">Schedule</Link></li>
+              <li><Link to="/booking" className="hover:text-white">Book a Lesson</Link></li>
+            </ul>
+          </div>
+          <div>
+            <div className="text-xs font-semibold tracking-editorial text-white">CONTACT</div>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li>Bangkok, Thailand</li>
+              <li>LINE: @coachnoey</li>
+              <li>noey@coachnoey.com</li>
+            </ul>
+          </div>
+        </div>
+        <div className="mt-10 border-t border-white/10 pt-6 text-xs">
+          © {new Date().getFullYear()} Coach Noey · All rights reserved.
+        </div>
       </div>
     </footer>
   );

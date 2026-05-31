@@ -45,7 +45,7 @@ function BookingPage() {
 
       <section className="border-b border-border bg-secondary/30">
         <div className="mx-auto max-w-3xl px-6 py-16 text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--clay)]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--amber)]">
             Book a Lesson
           </p>
           <h1 className="mt-2 font-display text-5xl font-bold md:text-6xl">
@@ -60,7 +60,7 @@ function BookingPage() {
       <section className="mx-auto max-w-3xl px-6 py-16">
         {submitted ? (
           <div className="rounded-2xl border border-primary bg-primary p-10 text-center text-primary-foreground shadow-[var(--shadow-elegant)]">
-            <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-[var(--ball)] text-2xl text-[var(--ball-foreground)]">
+            <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-[var(--amber)] text-2xl text-[var(--amber-foreground)]">
               ✓
             </div>
             <h2 className="font-display text-3xl font-bold">예약 신청이 접수되었습니다!</h2>
@@ -74,7 +74,7 @@ function BookingPage() {
                 setSubmitted(false);
                 setForm({ ...form, date: "", time: "", notes: "" });
               }}
-              className="mt-6 rounded-full bg-[var(--ball)] px-6 py-3 text-sm font-semibold text-[var(--ball-foreground)]"
+              className="mt-6 rounded-full bg-[var(--amber)] px-6 py-3 text-sm font-semibold text-[var(--amber-foreground)]"
             >
               새 예약하기
             </button>

@@ -52,7 +52,7 @@ function LessonsPage() {
 
       <section className="border-b border-border bg-secondary/30">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--clay)]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--amber)]">
             Lessons & Pricing
           </p>
           <h1 className="mt-2 font-display text-5xl font-bold md:text-6xl">
@@ -77,7 +77,7 @@ function LessonsPage() {
               }`}
             >
               {l.featured && (
-                <span className="absolute -top-3 left-8 rounded-full bg-[var(--ball)] px-3 py-1 text-xs font-semibold text-[var(--ball-foreground)]">
+                <span className="absolute -top-3 left-8 rounded-full bg-[var(--amber)] px-3 py-1 text-xs font-semibold text-[var(--amber-foreground)]">
                   가장 인기
                 </span>
               )}
@@ -99,7 +99,7 @@ function LessonsPage() {
                   <li key={f} className="flex items-start gap-2">
                     <span
                       className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${
-                        l.featured ? "bg-[var(--ball)]" : "bg-primary"
+                        l.featured ? "bg-[var(--amber)]" : "bg-primary"
                       }`}
                     />
                     {f}
@@ -110,7 +110,7 @@ function LessonsPage() {
                 to="/booking"
                 className={`mt-8 rounded-full px-5 py-3 text-center text-sm font-semibold transition-transform hover:scale-[1.02] ${
                   l.featured
-                    ? "bg-[var(--ball)] text-[var(--ball-foreground)]"
+                    ? "bg-[var(--amber)] text-[var(--amber-foreground)]"
                     : "bg-primary text-primary-foreground"
                 }`}
               >

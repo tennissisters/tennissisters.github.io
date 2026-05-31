@@ -5,10 +5,10 @@ import { SiteHeader, SiteFooter } from "@/components/SiteHeader";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Coach Noey · 방콕 테니스 개인레슨" },
-      { name: "description", content: "ITF 경력의 Noey 코치와 함께하는 방콕 1:1 테니스 레슨. 초보·중급·시합 준비까지 맞춤 트레이닝." },
-      { property: "og:title", content: "Coach Noey · 방콕 테니스 개인레슨" },
-      { property: "og:description", content: "ITF 경력의 Noey 코치와 함께하는 방콕 1:1 테니스 레슨." },
+      { title: "Coach Noey · Bangkok Private Tennis Coaching" },
+      { name: "description", content: "12+ years of elite tennis coaching in Bangkok. Private 1-on-1 lessons from first swing to tournament ready." },
+      { property: "og:title", content: "Coach Noey · Bangkok Private Tennis Coaching" },
+      { property: "og:description", content: "Bangkok-based private tennis coaching by Coach Noey." },
       { property: "og:image", content: heroCoach },
       { name: "twitter:image", content: heroCoach },
     ],
@@ -16,135 +16,214 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const stats = [
-  { value: "12+", label: "코칭 경력 (년)" },
-  { value: "300+", label: "수강생" },
-  { value: "5★", label: "평균 평점" },
-  { value: "BKK", label: "방콕 전 지역" },
+const pressLogos = [
+  "ATP TOUR", "WTA", "TENNIS BANGKOK", "LTAT", "SET FOR LIFE",
+  "ASIA TENNIS", "BKK POST", "THE NATION", "BANGKOK 101",
 ];
 
-const strengths = [
+const pillars = [
   {
-    title: "체계적인 1:1 커리큘럼",
-    desc: "그립·풋워크·스트로크부터 전술까지, 레벨에 맞춘 단계별 트레이닝.",
+    no: "01",
+    title: "PRIVATE COACHING",
+    desc: "One-on-one sessions designed around your goals, technique gaps, and pace. No template programs — every lesson is custom.",
   },
   {
-    title: "원어민 영어/한국어 가능",
-    desc: "초보자도 편안하게 소통하며 배울 수 있는 이중언어 코칭.",
+    no: "02",
+    title: "TOURNAMENT PREP",
+    desc: "Match simulation, tactical patterns, mental performance. Built for players entering club competitions, ITF, or national rankings.",
   },
   {
-    title: "방콕 주요 코트 출장",
-    desc: "수쿰빗·통로·실롬 등 원하는 코트로 직접 찾아갑니다.",
+    no: "03",
+    title: "JUNIORS DEVELOPMENT",
+    desc: "Long-term technical foundation for ages 8–17. Movement, motor skills, competitive mindset — without burning out the love of the game.",
   },
+];
+
+const stats = [
+  { v: "12+", l: "YEARS COACHING" },
+  { v: "300+", l: "PLAYERS DEVELOPED" },
+  { v: "20+", l: "TOURNAMENT WINS" },
+  { v: "BKK", l: "ALL COURTS" },
 ];
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
-      <SiteHeader />
+    <div className="bg-background">
+      {/* HERO — full bleed image with overlaid editorial type */}
+      <section className="relative min-h-screen bg-[var(--navy-deep)]">
+        <SiteHeader variant="transparent" />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={heroCoach}
-            alt="방콕 클레이 코트에서 포핸드 스트로크 자세를 보여주는 Noey 코치"
+            alt="Coach Noey on a Bangkok clay court at golden hour"
             width={1920}
             height={1080}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover opacity-90"
           />
-          <div
-            className="absolute inset-0"
-            style={{ background: "var(--gradient-hero)" }}
-          />
+          <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         </div>
 
-        <div className="relative mx-auto flex min-h-[640px] max-w-6xl flex-col justify-end px-6 pb-16 pt-32 text-[var(--court-foreground)]">
-          <span className="mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-[var(--ball)] px-3 py-1 text-xs font-semibold tracking-wide text-[var(--ball-foreground)] uppercase">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--ball-foreground)]" />
-            Bangkok · Private Coaching
-          </span>
-          <h1 className="max-w-3xl font-display text-5xl font-bold leading-tight md:text-7xl">
-            테니스를 더 잘하고 싶다면, <br />
-            <span className="text-[var(--ball)]">Coach Noey</span>와 함께.
+        <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-6 pb-16 pt-32 md:px-10 md:pb-24">
+          <h1 className="font-display font-extrabold uppercase leading-[0.95] text-white">
+            <span className="block text-outline text-5xl md:text-7xl lg:text-8xl">
+              ONE OF
+            </span>
+            <span className="block text-outline text-5xl md:text-7xl lg:text-8xl">
+              BANGKOK'S MOST
+            </span>
+            <span className="mt-2 block text-5xl md:text-7xl lg:text-8xl">
+              trusted tennis<span className="text-[var(--amber)]">.</span>
+            </span>
+            <span className="block text-5xl md:text-7xl lg:text-8xl">
+              coaches<span className="text-[var(--amber)]">.</span>
+            </span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-white/85">
-            방콕 어디서든 1:1 맞춤 레슨. 초보자의 첫 스윙부터 시합 준비까지,
-            12년 경력의 코치가 함께합니다.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+
+          <div className="mt-12 flex flex-wrap items-center gap-4">
             <Link
               to="/booking"
-              className="rounded-full bg-[var(--ball)] px-7 py-3.5 text-sm font-semibold text-[var(--ball-foreground)] shadow-[var(--shadow-elegant)] transition-transform hover:scale-[1.02]"
+              className="inline-flex items-center gap-3 bg-[var(--amber)] px-8 py-4 text-xs font-bold tracking-editorial text-[var(--amber-foreground)] shadow-[var(--shadow-amber)] transition-transform hover:scale-[1.03]"
             >
-              레슨 예약하기 →
+              BOOK A SESSION
+              <span aria-hidden>→</span>
             </Link>
             <Link
               to="/lessons"
-              className="rounded-full border border-white/40 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
+              className="inline-flex items-center gap-3 border border-white/40 px-8 py-4 text-xs font-bold tracking-editorial text-white transition-colors hover:bg-white/10"
             >
-              레슨 살펴보기
+              EXPLORE COACHING
             </Link>
+          </div>
+        </div>
+
+        {/* Side label */}
+        <div className="pointer-events-none absolute bottom-8 right-6 hidden text-xs tracking-editorial text-white/60 md:block md:right-10">
+          BANGKOK · EST. 2012
+        </div>
+      </section>
+
+      {/* PRESS / FEATURED BAR */}
+      <section className="border-y border-border bg-[var(--navy)] py-10 text-white/70">
+        <div className="mx-auto mb-6 max-w-7xl px-6 text-center text-xs tracking-editorial md:px-10">
+          AS SEEN IN
+        </div>
+        <div className="relative overflow-hidden">
+          <div className="flex w-max gap-16 px-6 animate-marquee">
+            {[...pressLogos, ...pressLogos].map((logo, i) => (
+              <span
+                key={`${logo}-${i}`}
+                className="whitespace-nowrap font-display text-xl font-bold tracking-editorial text-white/50"
+              >
+                {logo}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-y border-border bg-secondary/40">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 md:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center md:text-left">
-              <div className="font-display text-4xl font-bold text-primary">{s.value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
+      {/* INTRO BLOCK — editorial split */}
+      <section className="bg-background py-24 md:py-32">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-12 md:px-10">
+          <div className="md:col-span-4">
+            <div className="text-xs font-bold tracking-editorial text-[var(--amber)]">
+              — THE STORY
             </div>
-          ))}
+            <h2 className="mt-6 font-display text-4xl font-extrabold uppercase leading-[1] md:text-5xl">
+              Bangkok's most precise tennis instruction.
+            </h2>
+          </div>
+          <div className="md:col-span-7 md:col-start-6">
+            <p className="font-display text-xl leading-relaxed text-foreground/80 md:text-2xl">
+              For over a decade Coach Noey has shaped serious players across Bangkok —
+              from absolute beginners discovering the sport to nationally-ranked
+              juniors preparing for tournaments. Every session is built on
+              <span className="text-[var(--navy)] font-semibold"> measurable technique</span>,
+              tactical clarity, and the kind of belief that turns
+              practice into performance.
+            </p>
+            <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4">
+              {stats.map((s) => (
+                <div key={s.l}>
+                  <div className="font-display text-4xl font-extrabold text-[var(--navy)]">
+                    {s.v}
+                  </div>
+                  <div className="mt-2 text-xs tracking-editorial text-muted-foreground">
+                    {s.l}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Strengths */}
-      <section className="mx-auto max-w-6xl px-6 py-24">
-        <div className="mb-12 max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-wider text-[var(--clay)]">
-            Why Coach Noey
-          </p>
-          <h2 className="mt-2 font-display text-4xl font-bold md:text-5xl">
-            "잘 가르치는 것"에 집착합니다.
-          </h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {strengths.map((s, i) => (
-            <article
-              key={s.title}
-              className="rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1"
-            >
-              <div className="mb-4 grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground font-semibold">
-                {i + 1}
-              </div>
-              <h3 className="font-display text-xl font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="mx-auto max-w-6xl px-6 pb-24">
-        <div
-          className="overflow-hidden rounded-3xl p-12 text-[var(--court-foreground)] shadow-[var(--shadow-elegant)]"
-          style={{ background: "var(--gradient-court)" }}
-        >
-          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+      {/* THREE PILLARS — dark editorial */}
+      <section className="bg-[var(--navy-deep)] py-24 text-white md:py-32">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <h3 className="font-display text-3xl font-bold md:text-4xl">
-                첫 레슨 예약, 30초면 충분합니다.
-              </h3>
-              <p className="mt-2 text-white/80">원하는 날짜와 코트를 알려주세요.</p>
+              <div className="text-xs font-bold tracking-editorial text-[var(--amber)]">
+                — WHAT I COACH
+              </div>
+              <h2 className="mt-4 max-w-3xl font-display text-4xl font-extrabold uppercase leading-[1] md:text-6xl">
+                Three programs. One standard.
+              </h2>
             </div>
             <Link
-              to="/booking"
-              className="rounded-full bg-[var(--ball)] px-7 py-3.5 text-sm font-semibold text-[var(--ball-foreground)] transition-transform hover:scale-[1.02]"
+              to="/lessons"
+              className="text-xs font-bold tracking-editorial text-white/70 hover:text-[var(--amber)]"
             >
-              지금 예약하기 →
+              SEE ALL PROGRAMS →
+            </Link>
+          </div>
+
+          <div className="mt-16 grid gap-px bg-white/10 md:grid-cols-3">
+            {pillars.map((p) => (
+              <article
+                key={p.no}
+                className="group relative bg-[var(--navy-deep)] p-10 transition-colors hover:bg-[var(--navy)]"
+              >
+                <div className="font-display text-sm font-bold tracking-editorial text-[var(--amber)]">
+                  {p.no}
+                </div>
+                <h3 className="mt-6 font-display text-2xl font-extrabold uppercase leading-tight">
+                  {p.title}
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-white/70">{p.desc}</p>
+                <div className="mt-8 inline-block border-b border-[var(--amber)] pb-1 text-xs font-bold tracking-editorial text-[var(--amber)] opacity-0 transition-opacity group-hover:opacity-100">
+                  LEARN MORE
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* QUOTE / CTA */}
+      <section className="bg-background py-24 md:py-32">
+        <div className="mx-auto max-w-5xl px-6 text-center md:px-10">
+          <p className="text-xs font-bold tracking-editorial text-[var(--amber)]">— PHILOSOPHY</p>
+          <blockquote className="mt-8 font-display text-3xl font-extrabold uppercase leading-tight text-foreground md:text-5xl">
+            "Talent isn't given. It's built —<br />
+            one disciplined hour at a time."
+          </blockquote>
+          <p className="mt-6 text-xs tracking-editorial text-muted-foreground">
+            COACH NOEY
+          </p>
+
+          <div className="mt-14 flex flex-wrap justify-center gap-4">
+            <Link
+              to="/booking"
+              className="inline-flex items-center gap-3 bg-[var(--navy)] px-8 py-4 text-xs font-bold tracking-editorial text-white transition-transform hover:scale-[1.03]"
+            >
+              BOOK YOUR FIRST SESSION →
+            </Link>
+            <Link
+              to="/schedule"
+              className="inline-flex items-center gap-3 border border-foreground/20 px-8 py-4 text-xs font-bold tracking-editorial text-foreground transition-colors hover:bg-foreground/5"
+            >
+              VIEW AVAILABILITY
             </Link>
           </div>
         </div>
